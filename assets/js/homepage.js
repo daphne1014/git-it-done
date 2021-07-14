@@ -7,4 +7,3 @@ let getUserRepos = function(user) {
   }
   );
 };
-getUserRepos("facebook");
