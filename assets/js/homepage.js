@@ -12,6 +12,7 @@ let getUserRepos = function (user) {
   .catch(function(error) {
     alert("Unable to connect to GitHub");
   });
+  console.log(apiUrl);
 }
 
 let userFormEl = document.querySelector("#user-form");
