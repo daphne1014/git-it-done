@@ -72,5 +72,13 @@ let displayRepos = function (repos, searchTerm) {
 
 let getFeaturedRepos = function(language) {
   let apiUrl="https://api.github.com/search/repositories?q=" + language + "+is:featured&sort=help-wanted-issues";
-  fetch(apiUrl);
-}
+  fetch(apiUrl).then(function(response){
+    if(response.ok){
+      response.json().then(function(data){
+       displayRepos(data.items, language);
+      });
+    } else{
+      alert("Error:GitHub User Not Found");
+    }
+  });
+};
