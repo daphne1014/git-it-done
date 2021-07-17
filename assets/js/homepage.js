@@ -1,3 +1,4 @@
+let languageButtonsEl = document.querySelector("#language-buttons")
 let getUserRepos = function (user) {
   let apiUrl = "https://api.github.com/users/" + user + "/repos";
   fetch(apiUrl).then(function (response) {
@@ -82,3 +83,13 @@ let getFeaturedRepos = function(language) {
     }
   });
 };
+
+let buttonClickHandler = function(event){
+  let language = event.target.getAttribute("data-language");
+  if(language){
+    getFeaturedRepos(language);
+    repoContainerEl.textContent="";
+  }
+};
+
+languageButtonsEl.addEventListener("click", buttonClickHandler);
