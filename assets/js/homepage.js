@@ -34,6 +34,7 @@ let formSubmitHandler = function (event) {
 userFormEl.addEventListener("submit", formSubmitHandler);
 
 let displayRepos = function (repos, searchTerm) {
+  
   if (repos.length === 0) {
     repoContainerEl.textContent = "No repositories found.";
     return;
@@ -46,9 +47,9 @@ let displayRepos = function (repos, searchTerm) {
   for (let i = 0; i < repos.length; i++) {
     let repoName = repos[i].owner.login + "/" + repos[i].name;
 
-    let repoEl = document.createElement("div");
+    let repoEl = document.createElement("a");
     repoEl.classList = "list-item flex-row justify-space-between align-center";
-
+    repoEl.setAttribute("href", "./single-repo.html?repo="+repoName);
     let titleEl = document.createElement("span");
     titleEl.textContent = repoName;
 
